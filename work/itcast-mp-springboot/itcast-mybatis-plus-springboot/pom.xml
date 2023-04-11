@@ -67,11 +67,15 @@
         </dependency>
 
         <!--spring-test测试=-->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>4.2.4.RELEASE</version>
+            <version>3.0.5.RELEASE</version>
+            <scope>test</scope>
         </dependency>
+
+
 
         <dependency>
             <groupId>junit</groupId>
