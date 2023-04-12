@@ -7,3 +7,19 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/mp?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
+
+# 配置mybaits 控制台打印 sql 语句
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+  # 指定全局的配置文件
+#mybatis核心配置文件的位置配置
+#  config-location: classpath*:mybatis-config.xml // 有问题
+
+
+
+# 配置 mybatis 的 mapper 路径， 这样可以不用写 @MapperScanner（）
+#  mapper-locations: classpath*:mapper
+
