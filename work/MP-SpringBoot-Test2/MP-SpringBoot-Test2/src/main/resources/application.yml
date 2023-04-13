@@ -8,15 +8,21 @@ spring:
     username: root
     password: 123456
 
-# 配置mybaits 控制台打印 sql 语句
 mybatis-plus:
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 配置mybaits 控制台打印 sql 语句
+  #    map-underscore-to-camel-case: false # 禁用自定的驼峰映射， 数据库中是 username， 实体是 userName，false 就无法匹配了，默认是true启用
+  mapper-locations: classpath*:mybatis/*.xml  # 指定 mapper.xml文件的路径
+  type-aliases-package: cn.itcast.mp.pojo # 实体对象扫描包,UserMapper.xml 中返回类型不用全路径写，对应到这个包路径下的具体类
+#   cache-enabled: false # 禁用缓存
+  global-config:
+    db-config:
+      id-type: auto  # 全局的id生成策略
+      table-prefix: tb_
 
   # 指定全局的配置文件
 #mybatis核心配置文件的位置配置
-#  config-location: classpath*:mybatis-config.xml // 有问题
+  config-location: classpath*:mybatis-config.xml
 
 
 
