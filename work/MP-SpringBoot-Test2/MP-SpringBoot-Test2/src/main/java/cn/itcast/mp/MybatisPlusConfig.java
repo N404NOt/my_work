@@ -1,5 +1,7 @@
 package cn.itcast.mp;
 
+import cn.itcast.mp.injector.FindAll;
+import cn.itcast.mp.injector.MySqlInjector;
 import cn.itcast.mp.plugins.MyInterceptor;
 import com.baomidou.mybatisplus.core.parser.ISqlParser;
 import com.baomidou.mybatisplus.extension.parsers.BlockAttackSqlParser;
@@ -17,6 +19,14 @@ import java.util.List;
 // 放在这里更好，因为这个类是配置；类
 @MapperScan("cn.itcast.mp.mapper") // 和 cn/itcast/mp/mapper/UserMapper.java 的 @Mapper 有一个就ok application.yml 一个就ok
 public class MybatisPlusConfig {
+
+/*
+* 乐观锁
+* */
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
+    }
 
     @Bean // 配置分页插件
     public PaginationInterceptor paginationInterceptor() {
@@ -40,10 +50,16 @@ public class MybatisPlusConfig {
         return sqlExplainInterceptor;
     }
 
-//    @Bean
-//    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
-//        return new OptimisticLockerInterceptor();
-//    }
+    /*
+    * 注入自定义的 SQL 注入器
+    *
+    * */
+    @Bean
+    public MySqlInjector mySqlInjector() {
+        return new MySqlInjector();
+    }
+
+
 }
 
 

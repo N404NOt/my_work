@@ -90,10 +90,23 @@ public class TestUserMapper2 {
     public void testUpdateAll() {
         User user = new User();
         user.setAge(31);
-
         boolean update = user.update(null);
         System.out.println("result>> " + update);
 
     }
+
+    @Test
+    public void testUpdateVersion() {
+        User user = new User();
+        user.setAge(21);
+        user.setId(2L);
+
+        user.setVersion(2); // 当前的版本信息
+
+        boolean b = user.updateById();
+        System.out.println(b);
+    }
+
+
 
 }

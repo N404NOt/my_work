@@ -1,5 +1,6 @@
 package cn.itcast.mp;
 
+import cn.itcast.mp.enums.SexEnum;
 import cn.itcast.mp.mapper.UserMapper;
 import cn.itcast.mp.pojo.User;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -26,12 +27,13 @@ public class TestUserMapper {
     @Test
     public void testInsert() {
         User user = new User();
-        user.setMail("@sanguo.qq.com111");
-        user.setName("曹操1112222");
-        user.setAge(12122);
-        user.setPassword("111222333");
-        user.setUserName("caocao");
-        user.setAddress("aaaaaa");
+        user.setMail("@sang22uo.qq.com111");
+        user.setName("貂蝉");
+        user.setAge(18);
+//        user.setPassword("111222333");
+        user.setUserName("diaochan");
+        user.setAddress("三国");
+        user.setSex(SexEnum.WOMAN); // 使用枚举类型
         int insert = this.userMapper.insert(user);
 
         System.out.println("insert >>> " + insert);
@@ -40,7 +42,7 @@ public class TestUserMapper {
 
     @Test
     public void testSelectById() {
-        User user = userMapper.selectById(1L);
+        User user = userMapper.selectById(16L);
         System.out.println(user);
     }
 
@@ -83,7 +85,7 @@ public class TestUserMapper {
     @Test
     public void testDeleteById() {
 
-        int result = userMapper.deleteById(9L);
+        int result = userMapper.deleteById(3L);
         System.out.println("result>>> " + result);
     }
 
@@ -307,4 +309,5 @@ public class TestUserMapper {
             System.out.println(user);
         }
     }
+
 }

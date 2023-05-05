@@ -9,6 +9,7 @@ spring:
     password: 123456
 
 mybatis-plus:
+#  config-location: classpath:mybatis-config.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 配置mybaits 控制台打印 sql 语句
   #    map-underscore-to-camel-case: false # 禁用自定的驼峰映射， 数据库中是 username， 实体是 userName，false 就无法匹配了，默认是true启用
@@ -22,7 +23,6 @@ mybatis-plus:
 
   # 指定全局的配置文件
 #mybatis核心配置文件的位置配置
-  config-location: classpath*:mybatis-config.xml
 
 
 
